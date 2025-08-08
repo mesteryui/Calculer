@@ -3,7 +3,7 @@ use std::io;
 
 fn obtain_number(prompt: &str, custom_err: &str) -> i32 {
     let mut inpt = String::new();
-    print!("{}",prompt);
+    println!("{}",prompt);
     io::stdin().read_line(&mut inpt).expect(custom_err);
     return inpt.trim().parse::<i32>().unwrap_or(0); // I did this to simplify the normal thing is to use Result and things like that but I want something simple and the 0 doesn't change anything in an operation
 }
@@ -21,7 +21,7 @@ fn operate(operation: &str, num1: i32, num2:i32) -> i32 {
     }
 }
 fn select_operator() -> String {
-    print!("Select an operator: +, -, *, /, mod");
+    println!("Select an operator: +, -, *, /, mod");
     let mut operator = String::new();
     io::stdin().read_line(&mut operator).unwrap();
     return operator.trim().to_string();
